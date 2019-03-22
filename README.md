@@ -8,7 +8,7 @@ Um ransomware simples, escrito em python e para fins acadêmicos.
    - Irc Server
    - Key Manager
 2. Cliente
-   - Cliente Irc
+   - Irc Client
    - Crypter and Decrypter
    - File Walker
 
