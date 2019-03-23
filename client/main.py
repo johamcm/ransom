@@ -12,7 +12,7 @@ import Crypter
 # Altere se necessário
 # ----------------------
 
-HARDCODED_KEY = 'yellow submarine'
+HARDCODED_KEY = 'hackware strike force strikes u!'
 
 
 def get_parser():
