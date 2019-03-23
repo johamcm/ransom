@@ -58,7 +58,7 @@ def main():
         cryptFn = crypt.decrypt
 
     # altere isto para a sua necessidade
-    init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
+    init_path = os.path.abspath(os.path.join(os.getcwd(), 'files/'))
     startdirs = [init_path]
 
     for currentDir in startdirs:
