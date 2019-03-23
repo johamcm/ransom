@@ -10,6 +10,8 @@ import Crypter
 # ----------------------
 # Variáveis Globais
 # Altere se necessário
+# A senha pode ter os seguintes tamanhos
+# 128/192/256 bit - 1 bit = 8 bytes - 1 letra = 1 byte
 # ----------------------
 
 HARDCODED_KEY = 'hackware strike force strikes u!'
