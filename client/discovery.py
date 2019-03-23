@@ -38,7 +38,7 @@ def discover(initial_path):
 
         'zip', 'tar', 'tgz', 'bz2', '7z', 'rar', 'bak',  # Arquivos compactados e Backups
 
-        '.hackwareCrypt',  # Arquivos criptografados anteriormente
+        'hackwarecrypt',  # Arquivos criptografados anteriormente
     ]
 
     # dirpath - caminho atual
